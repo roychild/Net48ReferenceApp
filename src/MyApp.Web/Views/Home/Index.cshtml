@@ -1,0 +1,39 @@
+@model MyApp.Web.Models.ContentPage
+
+<section class="hero">
+    <h1>@Model.Title</h1>
+    <p class="lead">@Model.Summary</p>
+    @if (Request.IsAuthenticated)
+    {
+        @Html.ActionLink("View your profile", "Profile", "Account", null, new { @class = "button" })
+    }
+    else
+    {
+        @Html.ActionLink("Sign in with SSO", "Login", "Account", null, new { @class = "button" })
+    }
+</section>
+
+<section>
+    @foreach (var paragraph in Model.Paragraphs)
+    {
+        <p>@paragraph</p>
+    }
+</section>
+
+<section class="cards">
+    <div class="card">
+        <h2>About</h2>
+        <p>How the application is put together.</p>
+        @Html.ActionLink("Read more", "About", "Home")
+    </div>
+    <div class="card">
+        <h2>Services</h2>
+        <p>What this reference app demonstrates.</p>
+        @Html.ActionLink("Read more", "Services", "Home")
+    </div>
+    <div class="card">
+        <h2>API</h2>
+        <p>The same content as JSON from Web API.</p>
+        <a href="~/api/content">GET /api/content</a>
+    </div>
+</section>
