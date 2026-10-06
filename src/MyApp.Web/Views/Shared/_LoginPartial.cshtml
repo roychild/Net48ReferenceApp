@@ -1,0 +1,15 @@
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("Logout", "Account", FormMethod.Post, new { @class = "nav-auth" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ActionLink("Hello, " + User.Identity.Name, "Profile", "Account")
+        <button type="submit" class="link-button">Sign out</button>
+    }
+}
+else
+{
+    <div class="nav-auth">
+        @Html.ActionLink("Sign in", "Login", "Account", new { returnUrl = Request.RawUrl }, null)
+    </div>
+}

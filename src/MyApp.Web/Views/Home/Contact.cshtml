@@ -1,0 +1,10 @@
+@model MyApp.Web.Models.ContentPage
+
+<article class="content-page">
+    <h1>@Model.Title</h1>
+    <p class="lead">@Model.Summary</p>
+    @foreach (var paragraph in Model.Paragraphs)
+    {
+        <p>@paragraph</p>
+    }
+</article>

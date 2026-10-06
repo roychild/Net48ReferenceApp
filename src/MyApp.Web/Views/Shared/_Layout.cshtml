@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title - MyApp</title>
+    <link href="~/Content/site.css" rel="stylesheet" />
+</head>
+<body>
+    <header class="site-header">
+        <nav class="container nav">
+            @Html.ActionLink("MyApp", "Index", "Home", null, new { @class = "brand" })
+            <ul class="nav-links">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Services", "Services", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </nav>
+    </header>
+    <main class="container">
+        @RenderBody()
+    </main>
+    <footer class="container site-footer">
+        <p>&copy; @DateTime.Now.Year MyApp</p>
+    </footer>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
