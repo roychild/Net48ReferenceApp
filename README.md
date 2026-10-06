@@ -11,8 +11,9 @@ A reference ASP.NET web application for **.NET Framework 4.8.1** that combines:
 ## Solution layout
 
 ```
-MyApp.Web.sln
-├── src/MyApp.Web/                  ASP.NET Web Application (root namespace MyApp.Web)
+src/
+├── MyApp.Web.sln
+├── MyApp.Web/                      ASP.NET Web Application (root namespace MyApp.Web)
 │   ├── App_Start/                  MVC routes, Web API config, global filters
 │   ├── Controllers/                MVC controllers (Home, Account)
 │   ├── Controllers/Api/            Web API controllers (content, profile)
@@ -22,7 +23,7 @@ MyApp.Web.sln
 │   ├── Views/                      Razor views and shared layout
 │   ├── Startup.cs                  OWIN startup: cookie auth + Saml2 middleware
 │   └── Web.config                  App settings (incl. Saml2:*), binding redirects
-└── tests/MyApp.Web.Tests/          MSTest unit tests
+└── MyApp.Web.Tests/                MSTest unit tests
 ```
 
 ## Pages and endpoints
@@ -43,15 +44,15 @@ MyApp.Web.sln
 
 Requirements: Windows, Visual Studio 2022 with the *ASP.NET and web development* workload, and the .NET Framework 4.8.1 developer pack (or rely on the `Microsoft.NETFramework.ReferenceAssemblies` package the projects reference).
 
-1. Open `MyApp.Web.sln` in Visual Studio. NuGet packages restore automatically (PackageReference).
+1. Open `src/MyApp.Web.sln` in Visual Studio. NuGet packages restore automatically (PackageReference).
 2. Press **F5**. The site runs on IIS Express at `https://localhost:44300/`.
 3. Click **Sign in**. Out of the box the app uses the public [Sustainsys stub IdP](https://stubidp.sustainsys.com/), which lets you sign in as any user without a password, so you can try the whole flow without setting up an IdP.
 
 Run the tests from Test Explorer, or from the command line:
 
 ```
-msbuild MyApp.Web.sln /restore
-vstest.console tests\MyApp.Web.Tests\bin\Debug\net481\MyApp.Web.Tests.dll
+msbuild src\MyApp.Web.sln /restore
+vstest.console src\MyApp.Web.Tests\bin\Debug\net481\MyApp.Web.Tests.dll
 ```
 
 ## Configuring SAML

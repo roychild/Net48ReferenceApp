@@ -29,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\MyApp.Web\MyApp.Web.csproj" />
+    <ProjectReference Include="..\MyApp.Web\MyApp.Web.csproj" />
   </ItemGroup>
 
 </Project>
